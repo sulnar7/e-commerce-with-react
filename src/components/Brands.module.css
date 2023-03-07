@@ -1,0 +1,12 @@
+
+.seeMore{
+    color: #518FD8;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.seeMoreImg{
+    width: 8px;
+    height:7px
+    
+}

@@ -1,0 +1,40 @@
+*{
+    box-sizing: border-box;
+}
+.container{
+    padding:44px 85px 40px 44px;
+    display: flex;
+}
+
+.divLogo{
+    width: 73px;
+    height:50px;
+    background: #518FD8;
+    border-radius: 8px;
+    position: absolute;
+}
+.imgLogo{
+    position: relative;
+    z-index:99;
+    margin-left: 10px;
+}
+.logo{
+    display: flex;
+    position: relative;
+    align-items: center;
+    
+}
+.cart{
+    position: relative;
+}
+.cartCount{
+ 
+    position: absolute;
+    background-color: red;
+    color: white;
+    padding: 3px;
+    border-radius: 50%;
+    right: -3%;
+    top: -59%;
+
+}

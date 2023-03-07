@@ -1,0 +1,27 @@
+.container{
+    padding: 14px;
+    background-color: #FAFAFA;
+    height: 234px;
+    position: relative;
+
+}
+.img{
+    position: relative;
+}
+.onImg{
+    border: 2px solid #FFFFFF;
+    width: 96%;
+    height:83%;    
+    border-radius: 8px;
+    position:absolute;
+    top:20px;
+    left: 25px;
+    color: white;
+    font-size: 36px;
+    line-height: 42px;
+}
+.onImgText{
+    margin: 0;
+    margin-top: 7px;
+    margin-left: 15px;
+}

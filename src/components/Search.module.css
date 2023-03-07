@@ -1,0 +1,26 @@
+.container{
+    display: flex;
+    position: relative;
+    width: 788px;
+    margin-left: 113px;
+}
+.searchInput{
+    width: 100%;
+    padding:15px 17px;
+    background: #FAFAFA;
+    border: 1px solid #518FD8;
+    border-radius: 8px;
+    color: rgba(68, 68, 68, 0.62);
+    position: relative;
+}
+.searchButton{
+    background:#518FD8;
+    border: 0;
+    height:48px;
+    width: 54px;
+    border-top-right-radius: 8px 8px;
+    border-bottom-right-radius: 8px 8px;
+    position:absolute;
+    right:0
+
+}
