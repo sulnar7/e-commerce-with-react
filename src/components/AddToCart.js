@@ -15,7 +15,7 @@ function AddToCart({data}) {
     setIsOpenPortal(true)
   }
   const selector=useSelector(state=>state.products)
-  console.log(selector)
+
   return (
     <div className={styles.mainCart}>
         <img src={add} alt="" className={styles.img}/>

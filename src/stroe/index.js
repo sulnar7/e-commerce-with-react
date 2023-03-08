@@ -3,6 +3,8 @@ import React from 'react';
 
 const initialStateProducts = {
     products:[],
+    cartTotalQuantity:0,
+    cartTotalAmount:0
    
 }
 const products=createSlice({
@@ -10,10 +12,25 @@ const products=createSlice({
     initialState:initialStateProducts,
     reducers:{
         addToCart:(state,action)=>{
-            state.products=[
-                ...state.products,
-                action.payload,
-             ]
+            console.log(state.products)
+            const itemIndex=state.products.findIndex(item=>item.id===action.payload.id)
+
+            if(itemIndex>=0){
+                state.products[itemIndex].cartQuantity+=1
+            }else{
+                const temp={...action.payload,cartQuantity:1}
+                // state.products=[
+                //     ...state.products,
+                //     action.payload,  
+                    
+                    
+                //  ]
+                state.products=[
+                    ...state.products,
+                    temp
+                ]
+            }
+           
         },
         removeFromCart:(state,action)=>{
             const removeFromCard=state.products.filter(item=>item!==action.payload)
