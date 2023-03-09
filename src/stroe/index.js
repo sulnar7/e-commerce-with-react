@@ -2,7 +2,7 @@ import { configureStore,createSlice  } from '@reduxjs/toolkit'
 import React from 'react';
 
 const initialStateProducts = {
-    products:[],
+    products:localStorage.getItem('cartItems')?JSON.parse(localStorage.getItem('cartItems')):[],
     cartTotalQuantity:0,
     cartTotalAmount:0
    
@@ -29,12 +29,46 @@ const products=createSlice({
                     ...state.products,
                     temp
                 ]
+                localStorage.setItem('cartItems',JSON.stringify(state.products))
             }
            
         },
         removeFromCart:(state,action)=>{
             const removeFromCard=state.products.filter(item=>item!==action.payload)
             state.products=removeFromCard
+        },
+
+        decreaseCart:(state,action)=>{
+            const itemIndex=state.products.findIndex(item=>item.id===action.payload.id)
+            if(action.payload.cartQuantity>1){
+                state.products[itemIndex].cartQuantity-=1
+            }
+            else if(action.payload.cartQuantity===1){
+                let newCart=state.products.filter(item=>item.id!==action.payload.id)
+                console.log(newCart)
+                state.products=newCart
+            }
+            localStorage.setItem("cartItems",JSON.stringify(state.products))
+        },
+        increaseCart:(state,action)=>{
+            const itemIndex=state.products.findIndex(item=>item.id===action.payload.id)
+            state.products[itemIndex].cartQuantity+=1
+            // state.products[itemIndex].price*=state.products[itemIndex].cartQuantity
+            localStorage.setItem("cartItems",JSON.stringify(state.products))
+
+        },
+        getTotals:(state,action)=>{
+            let {total,quantity}=state.products.reduce((cartTotal,cartItem)=>{
+                const {price,cartQuantity}=cartItem
+                const itemTotal=price*cartQuantity;
+                cartTotal.total+=itemTotal;
+                cartTotal.quantity+=cartQuantity
+                return cartTotal
+
+            },{total:0,
+               quantity:0});
+               state.cartTotalAmount=total;
+               state.cartTotalQuantity=quantity
         }
         
     }

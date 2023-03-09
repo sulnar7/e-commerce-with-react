@@ -6,12 +6,19 @@ import Search from './Search';
 import profileIcon from '../assets/img/profile.png';
 import walletIcon from '../assets/img/wallet.png';
 import cartIcon from '../assets/img/cart.png';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { useEffect } from 'react';
+import { productActions } from '../stroe';
 
 
 const Header = () => {
   const selector = useSelector(state => state.products)
+  const dispatch=useDispatch()
+  useEffect(()=>{
+    dispatch(productActions.getTotals())
+  },[selector,dispatch])
+  
   return (
     <div className={style.container}>
 <NavLink to="/">
@@ -36,7 +43,7 @@ const Header = () => {
           </NavLink>
         </div>
         {selector.products.length>0 &&
-          <p className={style.cartCount}>{selector.products.length}</p>
+          <p className={style.cartCount}>{selector.cartTotalQuantity}</p>
         }
       </div>
 
