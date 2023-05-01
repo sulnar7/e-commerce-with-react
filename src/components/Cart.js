@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 
 import { useDispatch,  } from 'react-redux'
-import styles from './DeliveryAddress.module.css'
+import styles from './Cart.module.css'
 import { productActions } from '../stroe'
 import { useEffect } from 'react'    
 function Cart() {
@@ -26,21 +26,27 @@ function Cart() {
       return (
         <div>
             <div className={styles.main}>
+              <div className={styles.left}>
                 <div className={styles.img}>
                     <img src={product.image} alt="" />
                 </div>
                 <div className={styles.data}>
                     <p>{product.title}</p>
-                    <p>{product.price*product.cartQuantity}</p>
+                    <p>{product.price}</p>
                 </div>
-                <div className={styles.counter}>
+                </div>
+                <div className={styles.data}>
+                                       <p>{product.price*product.cartQuantity}</p>
+                                       <div className={styles.counter}>
                         <span onClick={()=>decrease(product)}>-</span>{product.cartQuantity} <span onClick={()=>increase(product)}>+</span>
                 </div>
+                </div>
+             
             </div>
         </div>
       )
     })}
-    <div>Subtotal : {data.cartTotalAmount.toFixed(2 )}</div>
+    <div>Subtotal : {data.cartTotalAmount.toFixed(2)}</div>
     <div>Total Quantity : {data.cartTotalQuantity}</div>
     </div>
   )

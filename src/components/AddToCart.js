@@ -14,20 +14,21 @@ function AddToCart({data}) {
     dispatch(productActions.addToCart(product));
     setIsOpenPortal(true)
   }
-  const selector=useSelector(state=>state.products)
 
   return (
-    <div className={styles.mainCart}>
+    <div>
+    <div className={styles.mainCart} onClick={()=>{addToCart(data)}}>
         <img src={add} alt="" className={styles.img}/>
-        <p className={styles.word} onClick={()=>{addToCart(data)}}>Add to Cart</p>
-        <Modal 
+        <p className={styles.word} >Add to Cart</p>
+       
+    </div>
+    <Modal 
          isOpenPortal={isOpenPortal}
          setIsOpenPortal={setIsOpenPortal}
          product={data}
          
         ></Modal>
     </div>
-
   )
 }
 

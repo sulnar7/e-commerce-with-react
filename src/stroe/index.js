@@ -38,14 +38,18 @@ const products=createSlice({
             state.products=removeFromCard
         },
 
+        // searchProducts:(state,action)=>{
+        //     console.log("products",state.products)
+        //     state.products=state.products.filter(product=>action.payload.toLowerCase().includes(product.title.toLowerCase()))
+        // },
+
         decreaseCart:(state,action)=>{
             const itemIndex=state.products.findIndex(item=>item.id===action.payload.id)
             if(action.payload.cartQuantity>1){
                 state.products[itemIndex].cartQuantity-=1
             }
             else if(action.payload.cartQuantity===1){
-                let newCart=state.products.filter(item=>item.id!==action.payload.id)
-                console.log(newCart)
+                const newCart=state.products.filter(item=>item.id!==action.payload.id)
                 state.products=newCart
             }
             localStorage.setItem("cartItems",JSON.stringify(state.products))

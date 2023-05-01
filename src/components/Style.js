@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import Brand from './Brand'
 import { useDispatch, useSelector } from 'react-redux'
 import { filterProductAction  } from '../stroe'
@@ -9,7 +9,7 @@ const Style = () => {
 
 
   let handleClick=(data)=>{
-      
+      console.log(data)
       if(!selector?.includes(data)){
         dispatch(filterProductAction.filterProducts(data))
 
@@ -34,4 +34,4 @@ const Style = () => {
   )
 }
 
-export default Style
+export default memo(Style)

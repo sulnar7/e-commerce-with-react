@@ -9,7 +9,6 @@ const Products = () => {
   const filterCategory=useSelector(state=>state.filterProducts.filterProducts);
   const filterSearch=useSelector(state=>state.searchProducts.searchProducts)
 
-  console.log(filterSearch,"filterSearch")
   const [data, setData] = useState();
   const [loading,setLoading]=useState(true)
   const [httpErrors,setHttpErrors]=useState(null)
@@ -35,12 +34,13 @@ const Products = () => {
   if(httpErrors){
     return <section><p>{httpErrors}</p></section>
   }
-  console.log(data)
   return (
     <div className={styles.main}>
    { data?.map(data=>{
     if(filterCategory?.length==0?true:filterCategory?.includes(data.category)){
+     
       if(filterSearch.length==0?true:data.title.toLowerCase().includes(filterSearch)){
+       
     return  <div className={styles.product} >
       <div className={styles.productImgCon}>
         <img className={styles.productImg} src={data?.image} alt="" />
@@ -63,7 +63,6 @@ const Products = () => {
         <div className={styles.productBottom}>
           <p className={styles.productPrice}>&#36;{data?.price}</p>
           <AddToCart data={data}/>
-         {console.log(filterCategory,data.category)}
         </div>
       </div>
 

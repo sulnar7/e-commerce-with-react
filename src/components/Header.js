@@ -43,7 +43,9 @@ const Header = () => {
           </NavLink>
         </div>
         {selector.products.length>0 &&
-          <p className={style.cartCount}>{selector.cartTotalQuantity}</p>
+          <p className={style.cartCount}>{selector.products.length}
+          {console.log(selector)}
+          </p>
         }
       </div>
 

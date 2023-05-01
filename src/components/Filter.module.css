@@ -1,10 +1,10 @@
 .container{
     background-color:#E9E9E9 ;
     padding-left: 15px;
-    width: 122px;
     margin-left: 44px;
     font-size: 10px;
-    width: 10%;
+    height: 100%;
+    width: 15%;
 }
 *{
     box-sizing: border-box;
