@@ -18,7 +18,7 @@ const Modal = ({
 
         </div>
       </div>
-      <button onClick={() => setIsOpenPortal(false)}>Close modal</button>
+      <button onClick={() => setIsOpenPortal(false)} className={styles.button}>Close </button>
     </div>,
     document.getElementById("basket-item")
   );

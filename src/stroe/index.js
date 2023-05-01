@@ -19,12 +19,7 @@ const products=createSlice({
                 state.products[itemIndex].cartQuantity+=1
             }else{
                 const temp={...action.payload,cartQuantity:1}
-                // state.products=[
-                //     ...state.products,
-                //     action.payload,  
-                    
-                    
-                //  ]
+             
                 state.products=[
                     ...state.products,
                     temp
